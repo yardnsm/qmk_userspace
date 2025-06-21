@@ -40,6 +40,12 @@ enum layer_number {
 #define HM_L LALT_T(KC_L)
 #define HM_SCLN RCTL_T(KC_SCLN)
 
+#define TAP_FLOW_TERM 150
+#define TAPPING_TERM 240
+#define CHORDAL_HOLD
+#define PERMISSIVE_HOLD
+
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -63,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    XXXXXXX,
   KC_ESC,    HM_A,   HM_S,    HM_D,    HM_F,    KC_G,                     KC_H,    HM_J,    HM_K,    HM_L,    HM_SCLN, KC_QUOT,
   KC_LSFT,   KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_LBRC,  KC_RBRC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-                     XXXXXXX, KC_LGUI, LOWER,   KC_SPC,                   KC_ENT,  KC_BSPC, KC_RGUI, XXXXXXX
+                     XXXXXXX, KC_LGUI, LOWER,   KC_SPC,                   KC_ENT,  RAISE,   KC_BSPS, XXXXXXX
 ),
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -218,3 +224,13 @@ bool oled_task_user(void) {
     return false;
 }
 #endif // OLED_ENABLE
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (record->event.pressed) {
+#ifdef OLED_ENABLE
+    // set_keylog(keycode, record);
+#endif
+    // set_timelog();
+  }
+  return true;
+}
