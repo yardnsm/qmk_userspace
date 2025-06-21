@@ -19,6 +19,11 @@ $ qmk config user.overlay_dir="$(realpath .)"
 qmk compile -kb lily58/rev1 -km via_sodmo_hmr
 # or
 make lily58/rev1:via_sodmo_hmr
+
+# flashing
+qmk flash -kb lily58/rev1 -km via_sodmo_hmr
+# or
+make lily58/rev1:via_sodmo_hmr:flash
 ```
 
 ## Compiling in GitHub Actions
