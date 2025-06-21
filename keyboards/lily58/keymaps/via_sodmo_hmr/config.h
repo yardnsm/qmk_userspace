@@ -29,7 +29,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define EE_HANDS
 
 #define QUICK_TAP_TERM 0
-#define TAPPING_TERM 100
+
+#define TAPPING_TERM 240
+#define TAP_FLOW_TERM 150
+#define CHORDAL_HOLD
+#define PERMISSIVE_HOLD
 
 // Underglow
 /*

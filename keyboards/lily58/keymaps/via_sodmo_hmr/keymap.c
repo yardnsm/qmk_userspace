@@ -40,12 +40,6 @@ enum layer_number {
 #define HM_L LALT_T(KC_L)
 #define HM_SCLN RCTL_T(KC_SCLN)
 
-#define TAP_FLOW_TERM 150
-#define TAPPING_TERM 240
-#define CHORDAL_HOLD
-#define PERMISSIVE_HOLD
-
-
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -69,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    XXXXXXX,
   KC_LSFT,    HM_A,   HM_S,    HM_D,    HM_F,    KC_G,                     KC_H,    HM_J,    HM_K,    HM_L,    HM_SCLN, KC_RSFT,
   KC_ESC,   KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_LBRC,  KC_RBRC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_QUOT,
-                     XXXXXXX, KC_LGUI, LOWER,   KC_SPC,                   KC_ENT,  RAISE,   KC_BSPS, XXXXXXX
+                     XXXXXXX, KC_LGUI, LOWER,   KC_SPC,                   KC_ENT,  RAISE,   KC_BCPS, XXXXXXX
 ),
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -142,8 +136,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
   if (!is_keyboard_master())
-    return OLED_ROTATION_270;  // I want the layer information to be straight
-  return rotation;
+    return OLED_ROTATION_0;  // I want the layer information to be straight
+  return OLED_ROTATION_270;
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
